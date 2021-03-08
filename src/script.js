@@ -4,37 +4,11 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import anime from '../lib/anime.js'
-import fragmentShader from './shaders/fragment.glsl'
-import vertexShader from './shaders/vertex.glsl'
+import fragmentShader from './shaders/matrix/fragment.glsl'
+import vertexShader from './shaders/matrix/vertex.glsl'
+// import fragmentShader from './shaders/test01/fragment.glsl'
+// import vertexShader from './shaders/test01/vertex.glsl'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
-
-
-/**
- * Base
- */
-
-// Canvas
-const canvas = document.querySelector('canvas.webgl')
-
-// Scene
-const scene = new THREE.Scene()
-
-/**
-     * Add Lights
-     */
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-scene.add(ambientLight)
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6)
-directionalLight.castShadow = true
-directionalLight.shadow.mapSize.set(1024, 1024)
-// directionalLight.shadow.camera.far = 15
-// directionalLight.shadow.camera.left = - 15
-// directionalLight.shadow.camera.top = 15
-// directionalLight.shadow.camera.right = 15
-// directionalLight.shadow.camera.bottom = - 15
-directionalLight.position.set(2.5,2.9,0.7)
-scene.add(directionalLight)
 
 // Promise Loader
 function promiseLoader (loader, url) {
@@ -42,7 +16,6 @@ function promiseLoader (loader, url) {
         loader.load(url, data => resolve(data), null, reject)
     })
 }
-
 // Matrix Shader
 const uniforms = {
     u_mouse: { value: { x: window.innerWidth / 2, y: window.innerHeight / 2 } },
@@ -54,17 +27,12 @@ const matrixMaterial = new THREE.ShaderMaterial({
     fragmentShader: fragmentShader,
     uniforms
 })
-
-/**
- * Sizes
- */
+// Handling resize
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
-
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
@@ -79,6 +47,28 @@ window.addEventListener('resize', () =>
 })
 
 /**
+ * Base
+ */
+
+// Canvas
+const canvas = document.querySelector('canvas.webgl')
+
+// Scene
+const scene = new THREE.Scene()
+
+/**
+ * Add Lights
+ */
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+scene.add(ambientLight)
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6)
+directionalLight.castShadow = true
+directionalLight.shadow.mapSize.set(1024, 1024)
+directionalLight.position.set(2.5,2.9,0.7)
+scene.add(directionalLight)
+
+/**
  * Camera
  */
 // Base camera
@@ -86,7 +76,9 @@ const camera = new THREE.PerspectiveCamera(55, sizes.width / sizes.height, 0.1, 
 camera.position.set(9, 13, -9)
 scene.add(camera)
 
-// Controls
+/**
+ *  Orbit Control
+ */
 const controls = new OrbitControls(camera, canvas)
 controls.target.set(0, 0.75, 0)
 controls.enableDamping = true
@@ -131,11 +123,6 @@ const tick = () =>
 
     stats.end()
 }
-
-// add the stats UI
-const stats = new Stats()
-stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild(stats.dom)
 
 /**
  * Main Start
@@ -236,18 +223,6 @@ async function main () {
     shadowDoc.receiveShadow = true
     shadowDoc.position.y = -1.49
     scene.add(shadowDoc)
-
-
-    // Debug
-    const gui = new dat.GUI()
-    gui.add(controls, 'autoRotate')
-    gui.add(camera.position, 'x', -20, 20).name("Camera X")
-    gui.add(camera.position, 'y', -20, 20).name("Camera Y")
-    gui.add(camera.position, 'z', -20, 20).name("Camera Z")
-    gui.add(directionalLight.position, 'x', -20, 20).name("Light X")
-    gui.add(directionalLight.position, 'y', -20, 20).name("Light Y")
-    gui.add(directionalLight.position, 'z', -20, 20).name("Light Z")
-
     
     // Start the loop
     tick()
@@ -256,4 +231,17 @@ main().catch(error => {
     console.error(error);
 });
 
+// Stats UI
+const stats = new Stats()
+stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+document.body.appendChild(stats.dom)
 
+// Debug UI
+const gui = new dat.GUI()
+gui.add(controls, 'autoRotate')
+gui.add(camera.position, 'x', -20, 20).name("Camera X")
+gui.add(camera.position, 'y', -20, 20).name("Camera Y")
+gui.add(camera.position, 'z', -20, 20).name("Camera Z")
+gui.add(directionalLight.position, 'x', -20, 20).name("Light X")
+gui.add(directionalLight.position, 'y', -20, 20).name("Light Y")
+gui.add(directionalLight.position, 'z', -20, 20).name("Light Z")
