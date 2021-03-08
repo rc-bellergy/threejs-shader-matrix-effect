@@ -9,7 +9,7 @@ Apply the Matrix shader effect to the ThreeJS project.\
 Thanks for the shader code by @patriciogv:\
 https://thebookofshaders.com/edit.php#08/matrix.frag
 
-and the ThreeJS course of []three.js journey](https://threejs-journey.xyz/) by @brunosimon
+and the ThreeJS course of [three.js journey](https://threejs-journey.xyz/) by @brunosimon
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
