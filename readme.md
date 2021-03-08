@@ -2,6 +2,9 @@
 
 ![](demo.gif)
 
+The demo page:
+https://designquest.com.hk/demo/threejs/matrix/
+
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
