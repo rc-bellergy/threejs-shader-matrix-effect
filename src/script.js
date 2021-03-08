@@ -6,8 +6,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import anime from '../lib/anime.js'
 import fragmentShader from './shaders/matrix/fragment.glsl'
 import vertexShader from './shaders/matrix/vertex.glsl'
-// import fragmentShader from './shaders/test01/fragment.glsl'
-// import vertexShader from './shaders/test01/vertex.glsl'
+import test01FragmentShader from './shaders/test01/fragment.glsl'
+import test01VertexShader from './shaders/test01/vertex.glsl'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
 
 // Promise Loader
@@ -27,6 +27,15 @@ const matrixMaterial = new THREE.ShaderMaterial({
     fragmentShader: fragmentShader,
     uniforms
 })
+
+// Testing Shader
+const testingUniforms = {}
+const test01Material = new THREE.ShaderMaterial({
+    vertexShader: test01VertexShader,
+    fragmentShader: test01FragmentShader,
+    uniforms
+})
+
 // Handling resize
 const sizes = {
     width: window.innerWidth,
@@ -200,15 +209,11 @@ async function main () {
     // Document
     const documentModel = await promiseLoader(gltfLoader, 'models/document/document.glb')
     const document = documentModel.scene.children[0]
-    // const materialGray = new THREE.MeshStandardMaterial({
-    //     color: '#444444',
-    //     metalness: 0,
-    //     roughness: 0.5
-    // })
-    
-    // document.material = materialGray
-    document.material = matrixMaterial
-    // document.receiveShadow = true
+
+    // document.material = matrixMaterial
+
+    document.material = test01Material
+
     document.rotation.y = Math.PI * 0.5
     document.rotation.x = Math.PI * 0.55
     document.scale.set(1.5,1.5,1.5)
@@ -226,6 +231,26 @@ async function main () {
     
     // Start the loop
     tick()
+
+    // Debug UI
+    const gui = new dat.GUI()
+    const proxy = {
+        material: 'test01Material'
+    }
+    gui.add(controls, 'autoRotate')
+
+    gui.add(proxy, 'material', { Matrix: 'matrixMaterial', Test01: 'test01Material'}).onChange((e) => {
+        document.material = eval(e)
+    })
+
+    gui.add(camera.position, 'x', -20, 20).name("Camera X")
+    gui.add(camera.position, 'y', -20, 20).name("Camera Y")
+    gui.add(camera.position, 'z', -20, 20).name("Camera Z")
+
+    gui.add(directionalLight.position, 'x', -20, 20).name("Light X")
+    gui.add(directionalLight.position, 'y', -20, 20).name("Light Y")
+    gui.add(directionalLight.position, 'z', -20, 20).name("Light Z")
+
 }
 main().catch(error => {
     console.error(error);
@@ -236,12 +261,4 @@ const stats = new Stats()
 stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom)
 
-// Debug UI
-const gui = new dat.GUI()
-gui.add(controls, 'autoRotate')
-gui.add(camera.position, 'x', -20, 20).name("Camera X")
-gui.add(camera.position, 'y', -20, 20).name("Camera Y")
-gui.add(camera.position, 'z', -20, 20).name("Camera Z")
-gui.add(directionalLight.position, 'x', -20, 20).name("Light X")
-gui.add(directionalLight.position, 'y', -20, 20).name("Light Y")
-gui.add(directionalLight.position, 'z', -20, 20).name("Light Z")
+

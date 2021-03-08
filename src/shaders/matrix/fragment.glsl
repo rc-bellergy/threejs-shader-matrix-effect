@@ -8,6 +8,7 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
+
 float random(in float x){
     return fract(sin(x)*43758.5453);
 }
