@@ -11,6 +11,9 @@ https://thebookofshaders.com/edit.php#08/matrix.frag
 
 and the ThreeJS course of [three.js journey](https://threejs-journey.xyz/) by @brunosimon
 
+## Issue
+The shader code does not work on ios!
+
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
