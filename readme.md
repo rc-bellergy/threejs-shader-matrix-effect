@@ -5,7 +5,7 @@
 The demo page:
 https://designquest.com.hk/demo/threejs/matrix/
 
-Apply the Matrix shader effect to the ThreeJS project.\
+Apply the Matrix shader effect to my ThreeJS project.\
 Thanks for the shader code by @patriciogv:\
 https://thebookofshaders.com/edit.php#08/matrix.frag
 
