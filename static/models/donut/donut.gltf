@@ -1,0 +1,291 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Camera",
+            "rotation" : [
+                0.483536034822464,
+                0.33687159419059753,
+                -0.20870360732078552,
+                0.7804827094078064
+            ],
+            "translation" : [
+                7.358891487121582,
+                4.958309173583984,
+                6.925790786743164
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "body"
+        },
+        {
+            "mesh" : 1,
+            "name" : "top"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material.001",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.002",
+            "normalTexture" : {
+                "index" : 3
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 4
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 5
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Torus",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Torus.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "donut_DefaultMaterial_Normal",
+            "uri" : "textures/donut_DefaultMaterial_Normal.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "donut_DefaultMaterial_BaseColor",
+            "uri" : "textures/donut_DefaultMaterial_BaseColor.jpg"
+        },
+        {
+            "mimeType" : "image/jpg",
+            "name" : "donut_DefaultMaterial_Roughness",
+            "uri" : "textures/donut_DefaultMaterial_Roughness.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "donut_DefaultMaterial_Normal",
+            "uri" : "textures/donut_DefaultMaterial_Normal.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "donut_DefaultMaterial_BaseColor",
+            "uri" : "textures/donut_DefaultMaterial_BaseColor.jpg"
+        },
+        {
+            "mimeType" : "image/jpg",
+            "name" : "donut_DefaultMaterial_Roughness",
+            "uri" : "textures/donut_DefaultMaterial_Roughness.jpg"
+        },
+        {
+            "mimeType" : "image/jpg",
+            "name" : "donut_DefaultMaterial_Metallic",
+            "uri" : "textures/donut_DefaultMaterial_Metallic.jpg"
+        }
+        
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 9417,
+            "max" : [
+                0.14956319332122803,
+                0.05127078667283058,
+                0.15481679141521454
+            ],
+            "min" : [
+                -0.14687344431877136,
+                -0.049980610609054565,
+                -0.14793381094932556
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 9417,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 9417,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 55296,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 276,
+            "max" : [
+                0.1518242210149765,
+                0.05137999728322029,
+                0.1542442888021469
+            ],
+            "min" : [
+                -0.14673377573490143,
+                -0.018241945654153824,
+                -0.14751417934894562
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 276,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 276,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 1395,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 113004,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 113004,
+            "byteOffset" : 113004
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 75336,
+            "byteOffset" : 226008
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 110592,
+            "byteOffset" : 301344
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3312,
+            "byteOffset" : 411936
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3312,
+            "byteOffset" : 415248
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2208,
+            "byteOffset" : 418560
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2790,
+            "byteOffset" : 420768
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 423560,
+            "uri" : "donut.bin"
+        }
+    ]
+}
