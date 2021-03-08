@@ -210,9 +210,8 @@ async function main () {
     const documentModel = await promiseLoader(gltfLoader, 'models/document/document.glb')
     const document = documentModel.scene.children[0]
 
-    // document.material = matrixMaterial
-
-    document.material = test01Material
+    document.material = matrixMaterial
+    // document.material = test01Material
 
     document.rotation.y = Math.PI * 0.5
     document.rotation.x = Math.PI * 0.55
@@ -235,11 +234,11 @@ async function main () {
     // Debug UI
     const gui = new dat.GUI()
     const proxy = {
-        material: 'test01Material'
+        material: 'matrixMaterial'
     }
     gui.add(controls, 'autoRotate')
 
-    gui.add(proxy, 'material', { Matrix: 'matrixMaterial', Test01: 'test01Material'}).onChange((e) => {
+    gui.add(proxy, 'material', { Matrix2D: 'matrixMaterial', Matrix3D: 'test01Material'}).onChange((e) => {
         document.material = eval(e)
     })
 

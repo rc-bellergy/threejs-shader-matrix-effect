@@ -11,6 +11,10 @@ https://thebookofshaders.com/edit.php#08/matrix.frag
 
 and the ThreeJS course of [three.js journey](https://threejs-journey.xyz/) by @brunosimon
 
+## Apply to UV surface
+![](demo2.jpg)
+
+
 ## Issue
 The shader code does not work on ios and android!
 
