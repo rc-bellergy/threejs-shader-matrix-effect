@@ -42,8 +42,7 @@ vec3 matrix(in vec2 st){
 }
 
 void main(){
-    vec2 st = gl_FragCoord.st/v_uv.yx;
-    st.y *= v_uv.y/v_uv.x;
+    vec2 st =  u_resolution * v_uv.xy;
     vec3 color = matrix(st);
     gl_FragColor = vec4(color , 1);
 }

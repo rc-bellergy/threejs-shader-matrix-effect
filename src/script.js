@@ -6,8 +6,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import anime from '../lib/anime.js'
 import fragmentShader from './shaders/matrix/fragment.glsl'
 import vertexShader from './shaders/matrix/vertex.glsl'
-import test01FragmentShader from './shaders/test01/fragment.glsl'
-import test01VertexShader from './shaders/test01/vertex.glsl'
+import matrix3DFragmentShader from './shaders/test01/fragment.glsl'
+import matrix3DVertexShader from './shaders/test01/vertex.glsl'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
 
 // Promise Loader
@@ -31,8 +31,8 @@ const matrixMaterial = new THREE.ShaderMaterial({
 // Testing Shader
 const testingUniforms = {}
 const test01Material = new THREE.ShaderMaterial({
-    vertexShader: test01VertexShader,
-    fragmentShader: test01FragmentShader,
+    vertexShader: matrix3DVertexShader,
+    fragmentShader: matrix3DFragmentShader,
     uniforms
 })
 
